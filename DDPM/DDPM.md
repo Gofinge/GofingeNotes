@@ -27,6 +27,7 @@ x_t &= \alpha_tx_{t-1} + \beta_t \varepsilon_t , &\text{condition on observation
 $$
 
 Given that $\alpha_t^2 + \beta_t^2 = 1$, the we have:
+
 $$
 \begin{aligned}
 x_t &= \alpha_t\alpha_{t-1}x_{t-2} + \sqrt{\alpha_t^2\beta_{t-1}^2 + \beta_t^2}\bar{\varepsilon}_{t:t-1} \\
