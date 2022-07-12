@@ -51,12 +51,15 @@ when $T \rightarrow \infty$, $\bar{\alpha}_T \rightarrow 0$ and $\hat{\beta}_T \
 ## 2. Generation Process (Reverse Process)
 #### A single step of reverse process
 It is noteworthy that the reverse conditional probability is tractable when conditional on $x_0$:
+
 $$
 \begin{aligned}
 q(x_{t-1}| x_t, x_0) \sim \mathcal{N}(\tilde{\mu}(x_{t}, x_0), \tilde{\beta}_t^2I)
 \end{aligned}
 $$
+
 Using Bayes theorem, we have:
+
 $$
 \begin{aligned}
 q(x_{t-1}| x_t, x_0) &= q(x_t|x_{t-1}, x_0)\frac{q(x_{t-1}| x_0)}{q(x_t|x_0)} \\
@@ -66,6 +69,7 @@ q(x_{t-1}| x_t, x_0) &= q(x_t|x_{t-1}, x_0)\frac{q(x_{t-1}| x_0)}{q(x_t|x_0)} \\
 $$
 
 Following the standard Gaussian density function, the mean and variance can be parameterized as follow (recall that $\alpha_t^2 + \beta_t^2 = 1$ and $\bar{\alpha}_t^2 + \bar{\beta}_t^2 = 1$):
+
 $$
 \begin{aligned}
 \tilde{\beta}_t^2 &= 1 / ({\color{red}{\frac{\alpha_t^2}{\beta_t^2} + \frac{1}{\bar{\beta}_{t-1}^2}}}) = \frac{\bar{\beta}_{t-1}^2}{\bar{\beta}_t^2}\beta_t^2 \\
@@ -87,6 +91,7 @@ Recall taht we need to learning a neural network to approximate the conditioned 
 - **a. Euclidean distance**
 
 After the above derivation, we now analysis optimize target. A natural thinking is predict $x_{t-1}$ directly and minimize Euclidean distance:
+
 $$
 \begin{aligned}
 L_t = \frac{1}{\sigma_t^2}\mathbb{E}\left[||x_{t-1} - \tilde{\mu}_\theta(x_t, t)||^2\right]
@@ -137,6 +142,7 @@ $$
 
 ## 3. Parameters Setting
 - About $\alpha_t$, $T$ 
+
 $$
 \begin{aligned}
 &\alpha_t^2 + \beta_t^2 = 1 \\
@@ -147,10 +153,12 @@ $$
 $$
 
 - About $\sigma_t$
+
 $$
 \begin{aligned}
 & \sigma_t = \beta_t \\
 & \sigma_t = \frac{\bar{\beta}_{t-1}}{\bar{\beta}_t}\beta_t
 \end{aligned}
 $$
+
 ![sigma](DDPM-sigma.png)
